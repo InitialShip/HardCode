@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table,td,tr{
+      border:1px solid;
+    }
+    table {
+      width: 400px;
+    }
+    td {
+      padding-left: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>BẢNG CỬU CHƯƠNG</h1>
+  <table>
+    <tr>
+      <td id="2"></td>
+      <td id="3"></td>
+      <td id="4"></td>
+      <td id="5"></td>
+    </tr>
+    <tr>
+      <td id="6"></td>
+      <td id="7"></td>
+      <td id="8"></td>
+      <td id="9"></td>
+    </tr>
+  </table>
+  <script>
+    var two = document.getElementById('2')
+    var three = document.getElementById('3')
+    var four = document.getElementById('4')
+    var five = document.getElementById('5')
+    var six = document.getElementById('6')
+    var seven = document.getElementById('7')
+    var eight = document.getElementById('8')
+    var nine = document.getElementById('9')
+    
+    function MultTable(time)
+    {
+      var something = ""
+      for (let i = 1; i <= 10; i++)
+      something+=time+" x "+i+" = "+Number(time*i)+"<br/>"
+      return something
+    }
+    two.innerHTML=MultTable(2)
+    three.innerHTML=MultTable(3)
+    four.innerHTML=MultTable(4)
+    five.innerHTML=MultTable(5)
+    six.innerHTML=MultTable(6)
+    seven.innerHTML=MultTable(7)
+    eight.innerHTML=MultTable(8)
+    nine.innerHTML=MultTable(9)
+
+  </script>
+</body>
+</html>

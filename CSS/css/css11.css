@@ -1,0 +1,85 @@
+div.header{
+				font-size: 44px;
+				text-transform:uppercase;
+				color:red;
+				text-align:center;
+				height:60px;
+				background-image: url(../../Images/bush.png);
+				line-height:60px;
+				overflow:hidden;
+			}
+			.link {
+				font-size:20px;
+				text-align:center;
+				margin-top:2px;
+				background:blue;
+				height:40px;
+			}
+			.container {
+				margin-top:2px;
+				display:grid;
+				grid-template-columns:15% 65% 20%;
+				height:500px;
+			}
+			.footer {
+				color: yellow;
+				text-align:center;
+				background:blue;
+				height:50px;
+				line-height:50px;
+			}
+			.item_1 {
+				text-align:left;
+				overflow:hidden;
+				background:green;
+				color:white;
+			}
+			
+			.item_3 {
+				background:green;
+				text-align:center;
+				display:grid;
+				grid-template-rows: 200px 200px;
+			}
+			a{ 
+				text-decoration:none; 
+				color: white;
+			}
+			a:hover {
+				background:white;
+				color:blue;
+				border-radius: 5px;
+			}
+			nav ul {
+				list-style:none;
+			}
+			nav ul li {
+				padding: 0 10px;
+				display:inline-block;
+				line-height:40px;
+			}
+			nav { 
+				padding:0;
+				margin:0;
+			}
+			.ads{
+				padding: 7px;
+				margin:15px;
+				font-weight:bold;
+				background:white;
+				border-radius:20px;
+				overflow:hidden;
+			}
+			.item_2{
+				display:grid;
+				grid-template-columns: 50% 50%;
+				grid-template-rows: 250px 250px;
+				padding:5px;
+				overflow:scroll;
+			}
+			.article {
+				margin:2px;
+				background:#8B8989;
+				overflow:scroll;
+				line-height:20px;
+			}

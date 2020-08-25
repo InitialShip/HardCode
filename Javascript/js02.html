@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    td,tr{
+      border: 1px solid;
+    }
+    table {
+      width: 600px;
+      border: 2px solid;
+      border-collapse: collapse;
+      background: wheat;
+    }
+    input {
+      width: 500px;
+    }
+  </style>
+</head>
+<body>
+  <h1>CHƯƠNG TRÌNH GIẢI PHƯƠNG TRÌNH BẬC 2</h1>
+  <h2>ax<sup>2</sup> + bx + c = 0</h2>
+  <table>
+    <tr>
+      <td>a =</td>
+      <td>
+        <input type="number" id="a" required>
+      </td>
+    </tr>
+    <tr>
+      <td>b =</td>
+      <td>
+        <input type="number" id="b" required>
+      </td>
+    </tr>
+    <tr>
+      <td>c = </td>
+      <td><input type="number" id="c" required></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button onclick="GiaiPT()">Giải</button>
+        <button onclick="Refresh()">Xóa</button>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <div id="output"></div>
+  <script>
+    function GiaiPT(){
+      var output = document.getElementById('output')
+      var a = document.getElementById('a').value
+      var b = document.getElementById('b').value
+      var c = document.getElementById('c').value
+      if ( a== 0 )
+      {
+          if ( b == 0 )
+          {
+            if (c == 0)
+            {
+              output.innerHTML="Phương trình có vô số nghiệm"
+            }
+            else
+            {
+              output.innerHTML="Phương trình vô nghiệm"
+            }
+          }
+          else
+          {
+            output.innerHTML="Phương trình có 1 nghiệm: <br/>"
+            +"x = "+Math.round((-c/b)*100) / 100
+          }
+          return
+      }
+      var delta = b*b - 4*a*c
+      if(delta < 0)
+      {
+        output.innerHTML="Phương trình vô nghiệm"
+      }
+      if ( delta == 0)
+      {
+        output.innerHTML="Phương trình có 2 nghiệm kép: <br/>"
+        +"x1 = x2 ="+Math.round((-b/(2*a))*100) /100
+      }
+      else 
+      {
+        output.innerHTML="Phương trình có 2 nghiệm phân biệt: <br/>"
+        +"x1 = "+Math.round(((-b + Math.sqrt(delta))/(2*a))*100) / 100+"<br/>" 
+        +"x2 = "+Math.round(((-b - Math.sqrt(delta))/(2*a))*100) / 100
+      }
+    }
+    function Refresh(){
+      location.reload();
+    }
+  </script>
+</body>
+</html>

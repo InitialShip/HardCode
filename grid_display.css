@@ -1,0 +1,34 @@
+.page-grid{
+  display:  grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
+  margin:1rem;
+}
+.page-grid-item{
+  padding: 0.5rem;
+  height: 40px;
+  color: var(--bg-F);
+  border: 1px solid;
+  transition: all 500ms ease;
+}
+.page-grid-item:hover {
+  background:cyan;
+}
+.page-grid-item .text {
+  color: cyan;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border-bottom: 0.25rem solid cyan;
+}
+.page-grid-item:hover .text{
+  color: white;
+  width: auto;
+  border-bottom: 0.25rem solid black;
+}
+.page .title {
+  font-weight: bold;
+  letter-spacing: 0.25rem;
+  margin-left: 1rem;
+  border-left: 2px solid cyan;
+  padding-left: 0.5rem;
+}

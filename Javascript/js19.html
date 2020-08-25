@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    canvas {
+      margin-left: 100px;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <script>
+    var canvas = document.getElementById('canvas')
+    console.log(canvas)
+    var c = canvas.getContext('2d')
+    canvas.height = 400
+    canvas.width = 400
+    c.fillStyle='cyan'
+    c.fillRect(0,0,400,400)
+
+    var grd = c.createLinearGradient(200,0,200,400)
+    grd.addColorStop(0,"red")
+    grd.addColorStop(0.5,"white")
+    grd.addColorStop(1,"red")
+    c.fillStyle= grd
+    c.arc(200,200,200,0,Math.PI * 2)
+    c.fill()
+
+    c.fillStyle='yellow'
+    c.beginPath()
+    c.moveTo(0,200)
+    c.lineTo(200,0)
+    c.lineTo(400,200)
+    c.lineTo(200,400)
+    c.lineTo(0,200)
+    c.lineWidth = 5
+    c.strokeStyle='red'
+    c.stroke()
+    c.fill()
+
+    c.font="100px Arial"
+    c.strokeStyle='blue'
+    c.lineWidth = 3
+    c.strokeText("HTML5",40,240)
+    
+  </script>
+</body>
+</html>

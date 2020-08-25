@@ -1,0 +1,39 @@
+.box{
+  transition: all 500ms ease;
+  color: cyan;
+  overflow: hidden;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.box .title{
+  border-left: 2px solid;
+  padding-left: 0.5rem;
+}
+.box:hover {
+  background: cyan;
+  color: black;
+}
+.box:hover .title {
+  border-left: 2px solid black;
+  color: white
+}
+.back_icon{
+  transition: 500ms ease;
+  color: white;
+  margin: 2rem;
+}
+.back_icon:hover{
+  color:cyan;
+}
+@keyframes jump {
+  0%{
+    transform: translateY(0px);
+  }
+  50%{
+    transform: translateY(-10px);
+  }
+  100%
+  {
+    transform: translateY(0px);
+  }
+}

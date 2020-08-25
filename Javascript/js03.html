@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table{
+      width: 400px;
+    }
+    table ,td,tr {
+      border:1px solid;
+    }
+  </style>
+</head>
+<body>
+  <h1>CÁC PHÉP TÍNH SỐ HỌC</h1>
+  <table>
+    <tr>
+      <td>Số thứ 1</td>
+      <td>
+        <input type="number" id="so1" required>
+      </td>
+    </tr>
+    <tr>
+      <td>Số thứ 2</td>
+      <td>
+        <input type="number" id="so2" required>
+      </td>
+    </tr>
+    <tr>
+      <td>Chọn phép toán</td>
+      <td class="checker">
+        <input type="radio" name="pheptoan"id="cong" value="cong" checked>
+        <label for="cong">Cộng</label>
+        <br>  
+        <input type="radio" name="pheptoan"id="tru" value="tru">
+        <label for="tru">Trừ</label>
+        <br>
+        <input type="radio" name="pheptoan"id="nhan" value="nhan">
+        <label for="nhan">Nhân</label> 
+        <br>
+        <input type="radio" name="pheptoan" id="chia" value="chia">
+        <label for="chia">Chia</label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button onclick="ThucHien()">Thực hiện</button>
+      </td>
+      <td>
+        <input id="output" type="text" readonly>
+      </td>
+    </tr>
+  </table>
+  <script>
+    function ThucHien(){
+      var output = document.getElementById('output')
+      var so1 = Number(document.getElementById('so1').value)
+      var so2 = Number(document.getElementById('so2').value)
+      if (document.getElementById('cong').checked )
+      {
+        output.value = so1+so2
+      }
+      if (document.getElementById('tru').checked )
+      {
+        output.value = so1-so2
+      }
+      if (document.getElementById('nhan').checked )
+      {
+        output.value = so1*so2
+      }
+      if (document.getElementById('chia').checked )
+      {
+        output.value = Math.round(so1/so2 *100) /100
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <table>
+    <caption>
+     <h2>XỬ LÝ CHUỖI</h2>
+    </caption>
+    <tr>
+      <td>Chuổi ban đầu:</td>
+      <td>
+        <input type="text" id="Yeet">
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button onclick="Rv()">Đảo chuỗi</button>
+        <button onclick="Nl()">Chuẩn hóa chuỗi</button>
+      </td>
+    </tr>
+  </table>
+  <script>
+    var str;
+    function Rv()
+    {
+      var out = document.getElementById('Yeet')
+      str = out.value
+      var array = []
+      array = str.split(" ")
+      var result=" ";
+      for ( let i = array.length-1; i >= 0; i--)
+        result+=array[i]+" "
+      out.value = result.trim()
+    }
+    function Nl()
+    {
+      var out = document.getElementById('Yeet')
+      str = out.value
+      var array = []
+      array = str.split(" ")
+      console.log(array)
+      var result = " "
+      for ( let i = 0; i < array.length; i++)
+      {
+        if ( array[i] === "") continue
+        result+=array[i].charAt(0).toUpperCase() + array[i].slice(1) + " "
+      }
+      out.value = result.trim()
+    }
+  </script>
+</body>
+</html>

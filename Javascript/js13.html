@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <table>
+    <caption>
+      <h1>String Statistic</h1>
+    </caption>
+    <tr>
+      <td>String:</td>
+      <td>
+        <input type="text" id="Yeet">
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button onclick="DoThing()">Statistic</button>
+      </td>
+    </tr>
+  </table>
+  <div id="out"></div>
+  <script>
+    function DoThing()
+    {
+      var str = document.getElementById('Yeet').value.trim()
+      var array = str.split(" ")
+      console.log(array)
+      var string= " ";
+      for ( var i = 0; i < array.length ;i++)
+      {
+        if ( array[i] == "")
+        {
+          continue
+        }
+        string+=array[i]+" "
+      }
+      string = string.trim()
+      var non_space= str.replace(/\s+/g, '').toUpperCase()
+      var char = non_space.split("")
+      var out = document.getElementById('out')
+      var difChar = []
+      difChar[0] = char[0]
+      for ( var i = 1; i < char.length; i++)
+      {
+        var isDuplicated = false
+        for ( var j = 0; j < difChar.length; j++)
+        {
+          if (char[i] == difChar[j])
+          {
+            isDuplicated=true
+          }
+        }
+        if ( !isDuplicated )
+          {
+            difChar.push(char[i])
+          }
+      }
+      difChar.sort()
+      var Characters = non_space.length
+      var Words = string.split(" ")
+      Words = Words.length
+      var result = "Characters: "+Characters+"<br/>"
+      +"Words: "+Words+"<br/>"
+      for (var i = 0 ; i < difChar.length; i++)
+      {
+        var count = 0;
+        for ( var j = 0; j < char.length; j++)
+        {
+            if (difChar[i] == char[j])
+            {
+              count++
+            }
+        }
+        result+="Character '"+difChar[i]+"' : "+count+"<br/>"
+      }
+      out.innerHTML=result
+    }
+    </script>
+</body>
+</html>

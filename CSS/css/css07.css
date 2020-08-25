@@ -1,0 +1,17 @@
+div {
+	margin-left: 25%;
+}
+.table {
+	width:50%;
+	border-spacing:2px;
+	border: 1px solid;
+}
+tr:nth-child(odd){
+	background-color:#C0C0C0;
+}
+tr:nth-child(even){
+	background-color:#DCDCDC;
+}
+tr:first-child{
+	background-color: #696969;
+}

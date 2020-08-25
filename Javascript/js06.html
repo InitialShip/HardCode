@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table,td,tr{
+      border:1px solid;
+    }
+    table{
+      border-collapse: collapse;
+    }
+  </style>
+</head>
+<body>
+  <h1>ĐĂNG KÍ THÀNH VIÊN</h1>
+  <table>
+    <tr>
+      <td>Tên đăng nhập</td>
+      <td>
+        <input type="text" id="ID" required>
+      </td>
+    </tr>
+    <tr>
+      <td>Mật khẩu</td>
+      <td>
+        <input type="password" id="Pass" required>
+      </td>
+    </tr>
+    <tr>
+      <td>Ngày sinh</td>
+      <td>
+        <input type="Date" id="BD" required>
+      </td>
+    </tr>
+    <tr>
+      <td>Giới tính</td>
+      <td>
+        <input type="radio" name="GT" id="nam" checked>
+        Nam
+        <br>
+        <input type="radio" name="GT" id="nu">
+        Nữ
+      </td>
+    </tr>
+    <tr>
+      <td>Vấn đề bạn quan tâm</td>
+      <td>
+        <select id="things">
+          <option value="1">Thể thao</option>
+          <option value="2">Thời sự</option>
+          <option value="3">Thời trang</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button onclick="Register()">Đăng kí</button>
+      </td>
+      <td>
+        <button onclick="Refresh()">Hủy</button>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <textarea id="output" cols="50" rows="10"></textarea>
+      </td>
+    </tr>
+  </table>
+  <script>
+    function Register()
+    {
+      var ID = document.getElementById('ID').value
+      var Pass = document.getElementById('Pass').value
+      var date = document.getElementById('BD').value
+      var sex = (document.getElementById('nam').checked)? "Nam":"Nữ"
+      var interest = ""
+      switch (Number(document.getElementById('things').value))
+      {
+        case 1:
+          interest = "Thể Thao"
+          break
+        case 2:
+          interest = "Thời sự"
+          break
+        case 3:
+          interest = "Thời trang"
+      }
+      var output = document.getElementById('output')
+
+      output.innerHTML="Chào mừng "+ID+"\n"
+      +"Bạn là "+sex+"\n"
+      +"Mật khẩu của bạn có "+Pass.length+" ký tự"+"\n"
+      +"Bạn sinh ngày "+date+"\n"
+      +"Vấn đề bạn quan tâm là "+interest
+    }
+    function Refresh()
+    {
+      location.reload()
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Úng dụng web</title>
+	</head>
+	<body>
+		<a href = "../HTML.html"> Về trang HTML </a>
+		<form>
+			<table border="1">
+				<tr> 
+					<td> Họ tên </td>
+					<td> <input type="text" placeholder="Nhập họ tên ở đây!"></td>
+				</tr>
+				<tr>
+					<td> Giới tính </td>
+					<td> 
+						<form>
+						<label for="nam"> Nam </label>
+						<input type="radio" name="gioitinh" id="nam" value="Nam" checked>
+						<label for="nu"> Nữ </label>
+						<input type="radio" name="gioitinh" id="nu" value="Nữ">
+						</form>
+					</td>
+				</tr>
+				<tr>
+					<td> Điều bạn quan tâm </td>
+					<td>
+						<input type="checkbox" name="dbqt" value="kt" checked>Kinh tế 
+						<input type="checkbox" name="dbqt" value="xh">Xã hội
+						<input type="checkbox" name="dbqt" value="gt">Giải trí
+					</td>
+				</tr>
+				<tr>
+					<td> Địa chỉ:</td>
+					<td> 
+						<textarea rows="10" cols="100"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td> Học vấn: </td>
+					<td>
+						<select>
+							<option value="dh">Đại học</option>
+							<option value="cd">Cao đẳng</option>
+							<option value="tc">Trung cấp</option>
+							<option value="thpt">THPT</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2"> 
+						<input type="submit" value="Gửi thông tin">
+						<input type="submit" value="Nhập lại">
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>

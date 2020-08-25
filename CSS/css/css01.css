@@ -1,0 +1,19 @@
+body {
+	color:#000000;
+	background-color:#ffffff;
+	font-family:arial,verdana,sans-serif;
+}
+h1{color:#0000ff;}
+p.one{
+	background-color:yellow;
+	font-family:arial,verdana,sans-serif;
+}
+p.two{
+	background-color:gray;
+	font-family:times,times new roman,serif;
+}
+p.three{
+	font-family:courier,courier new,serif;
+	font-weight:900;
+	font-size:20px;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>XỬ LÝ SỰ KIỆN</h1>
+  <button onclick="alert('Bạn đã click vào button')">Click vào đây</button>
+  <button onclick="alert('Bạn đã submit form')">Gửi</button>
+  <input type="text" id="something">
+  <br>
+  <a href="#" onmousemove="alert('Con trỏ chuột đang nằm trên liên kết')">click vào liên kết</a>
+  <script>
+    var input=document.getElementById("something")
+	    input.addEventListener("keyup",function(key){
+		  if(key.keyCode===9 || key.keyCode===13){
+			alert('Bạn đã thay đổi chuỗi nhập');
+		}
+	})
+  </script>
+</body>
+</html>

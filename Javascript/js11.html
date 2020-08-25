@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <table>
+    <caption>THAY THẾ CHUỖI</caption>
+    <tr>
+      <td>Chuổi ban đầu:</td>
+      <td>
+        <input type="text" id="str">
+      </td>
+    </tr>
+    <tr>
+      <td>Chuổi bị thay thế:</td>
+      <td>
+        <input type="text" id="pos">
+      </td>
+    </tr>
+    <tr>
+      <td>Chuỗi thay thế:</td>
+      <td>
+        <input type="text" id="get">
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button onclick="Ok()">Thực hiện</button>
+      </td>
+    </tr>
+  </table>
+  <script>
+    var str;
+    function main(str,pos,get)
+    {
+      var i = str.indexOf(pos)
+      if ( i == -1) 
+      { 
+        return str
+      }
+      var firstHalf = str.slice(0,i)
+      var secondHalf = str.slice(i+pos.length)
+      str = "".concat(firstHalf,get,secondHalf)
+      return main(str,pos,get)
+    }
+    function Ok()
+    {
+        var out = document.getElementById('str')
+        var str = out.value
+        var pos = document.getElementById('pos').value
+        var get = document.getElementById('get').value
+        if (str === "") return
+        out.value = main(str,pos,get)
+    }
+  </script>
+</body>
+</html>

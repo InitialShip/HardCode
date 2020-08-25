@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table,td,tr {
+      border: 1px solid;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>CHƯƠNG TRÌNH TÍNH TUỔI</h1>
+  <table>
+    <tr>
+      <td>Nhập vào tên bạn:</td>
+      <td>
+        <input type="text" id="name" required>
+      </td>
+    </tr>
+    <tr>
+      <td>Nhập vào năm sinh:</td>
+      <td>
+        <input type="number" id="bYear" required>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <button onclick="Sayhello()"> Tính tuổi </button>
+  <div id="output"></div>
+<script>
+  function Sayhello(){
+    var output = document.getElementById('output')
+    var name = document.getElementById('name').value
+    var bYear = document.getElementById('bYear').value
+    console.log(name)
+    console.log(bYear)
+    output.innerHTML = "Chào bạn "+name+"! <br/>"
+    +"Tuổi của bạn là "+(2020-bYear)
+  }
+</script>  
+</body>
+</html>

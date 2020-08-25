@@ -1,0 +1,27 @@
+div.one{
+	border:2px solid;
+	width:200px;
+	height:100px;
+	background-color:yellow;
+}
+div.two{
+	margin-top:40px;
+	border:2px solid;
+	width:200px;
+	height:100px;
+	background-color:yellow;
+	float:left;
+	overflow:hidden;
+	line-height:20px;
+}
+div.three{
+	margin-top:40px;
+	margin-left:40px;
+	display:inline-block;
+	border:2px solid;
+	width:200px;
+	height:100px;
+	background-color:yellow;
+	float: none;
+	overflow:scroll;
+}

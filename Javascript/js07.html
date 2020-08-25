@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    th{
+      color: blue;
+    }
+    table ,td,tr{
+      border: 1px solid;
+    }
+    table{
+      width: 50%;
+      border-collapse: collapse;
+      background: pink;
+    }
+  </style>
+</head>
+<body>
+  <form>
+  <table>
+    <tr>
+      <th colspan="2">ĐĂNG KÍ MUA HÀNG</th>
+    </tr>
+    <tr>
+      <td>Họ:</td>
+      <td>
+        <input type="text" id="Ho" pattern="[a-zA-Z _àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ]{1,20}" required>
+      </td>
+    </tr>
+    <tr>
+      <td>Tên:</td>
+      <td>
+        <input type="text" id="Ten" pattern="[a-zA-Z _àáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹýÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ]{1,20}" required>
+      </td>
+    </tr>
+    <tr>
+      <td>Email:</td>
+      <td>
+        <input type="email" id="Email" required>
+      </td>
+    </tr>
+    <tr>
+      <td>Số điện thoại:</td>
+      <td>
+        <input type="number" id="SDT" required>
+      </td>
+    </tr>
+    <tr>
+      <td>Số lượng mua:</td>
+      <td>
+        <input type="number" id="SL" required>
+      </td>
+    </tr>
+    <tr>
+      <td>Ngày nhận hàng:</td>
+      <td>
+        <input type="date" id="Date" required>
+      </td>
+    </tr>
+    <tr>
+      <td>Thanh toán:</td>
+      <td>
+        <input type="radio" id="TT" value="1" checked>
+        Chuyển Khoảng
+        <input type="radio" id="TT" value="2">
+        Trực tiếp khi giao hàng
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input type="submit" value="Đăng kí mua">
+      </td>
+      <td>
+        <button onclick="location.reload()">Xóa</button>
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

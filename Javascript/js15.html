@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      line-height: 50px;
+    }
+    #box {
+      font-size: 50px;
+      width: 1000px;
+      height: 200px;
+      text-align: center;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <div id="box"></div>
+  <span>
+    Nhập nội dung:
+    <input type="text" id="text">
+  </span>
+  <br>
+  <span>
+    Màu nền: 
+    <input type="color" id="bg">
+  </span>
+  <br>
+  <span>
+    Màu chữ:
+    <input type="color" id="tc">
+  </span>
+  <br>
+  <button onclick="Yeet()">Thực hiện</button>
+  <script>
+    function Yeet()
+    {
+        var bg = document.getElementById('bg').value
+        var tc = document.getElementById('tc').value
+        var text = document.getElementById('text').value
+        var box = document.getElementById('box')
+
+        box.style.background=bg
+        box.style.color=tc
+        box.innerHTML=text
+    }
+  </script>
+</body>
+</html>
