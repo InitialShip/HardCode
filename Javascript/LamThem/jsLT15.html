@@ -3,9 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>JS_15</title>
 </head>
 <body>
+  <table>
+    <tr>
+      <td>Nhập một chuỗi: </td>
+      <td>
+        <input type="text" id="t">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button onclick="Run()">Encode</button>
+      </td>
+    </tr>
+  </table>
   <script>
     function encodeString(str)
     {
@@ -16,7 +29,11 @@
       }
       return tmp
     }
-    console.log(encodeString("abc123"))
+    function Run()
+    {
+      var str = document.getElementById('t')
+      str.value = encodeString(str.value)
+    }
   </script>
 </body>
 </html>

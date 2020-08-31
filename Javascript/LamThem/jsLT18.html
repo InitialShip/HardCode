@@ -3,9 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>JS_18</title>
 </head>
 <body>
+  <table>
+    <tr>
+      <td>Nhập một số: </td>
+      <td>
+        <input type="number" id="n">
+      </td>
+    </tr>
+    <tr>
+      <td>là số nguyên tố?</td>
+      <td id="out"></td>
+    </tr>
+    <tr>
+      <td>
+        <button onclick="Run()">Check</button>
+      </td>
+    </tr>
+  </table>
   <script>
     function checkPrime(n)
     {
@@ -18,7 +35,19 @@
       }
       return true
     }
-    console.log(checkPrime(7))
+    function Run()
+    {
+        var num = document.getElementById('n').value
+        var out = document.getElementById('out')
+        if (checkPrime(num))
+        {
+          out.innerHTML = "Phải"
+        }
+        else
+        {
+          out.innerHTML = "Không"
+        }
+    }
   </script>
 </body>
 </html>

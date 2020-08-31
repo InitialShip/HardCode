@@ -3,9 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>JS_21</title>
 </head>
 <body>
+  <table>
+    <tr>
+      <td>Dãy số : </td>
+      <td id="out"></td>
+    </tr>
+    <tr>
+      <td>Tổng các phần tử :</td>
+      <td id="sum"></td>
+    </tr>
+    <tr>
+      <td>
+        <button onclick="Run()">Run</button>
+      </td>
+    </tr>
+  </table>
   <script>
     var things = []
     function something()
@@ -24,9 +39,12 @@
       }
       return sum
     }
-    something()
-    console.log(things)
-    console.log(sumOfArr())
+    function Run()
+    {
+      something()
+      document.getElementById('out').innerHTML = things
+      document.getElementById('sum').innerHTML = sumOfArr(things)
+    }
 
   </script>
 </body>

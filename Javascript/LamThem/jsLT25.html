@@ -3,9 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>JS_25</title>
 </head>
 <body>
+  <table>
+    <tr>
+      <td>Dãy số : </td>
+      <td id="out"></td>
+    </tr>
+    <tr>
+      <td>
+        <button onclick="Run()">Run</button>
+      </td>
+    </tr>
+  </table>
   <script>
      var things = []
     function getRandom(n)
@@ -32,9 +43,11 @@
       }
       return tmp1.concat(tmp2)
     }
-    getRandom(20)
-    console.log(things)
-    console.log(sillyName())
+    function Run()
+    {
+      getRandom(20)
+      document.getElementById('out').innerHTML = sillyName()
+    }
   </script>
 </body>
 </html>

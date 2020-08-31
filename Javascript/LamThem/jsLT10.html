@@ -3,9 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>JS_10</title>
 </head>
 <body>
+  <table>
+    <tr>
+      <td>Nhập tên file:</td>
+      <td><input type="text" id="something"></td>
+    </tr>
+    <tr>
+      <td> <button onclick="Run()">Run</button></td>
+    </tr>
+  </table>
+  <div id="out"></div>
   <script>
     function checkFileType(strFileName)
     {
@@ -16,7 +26,19 @@
       }
       return false
     }
-    checkFileType("ksngegne.thk")
+    function Run()
+    {
+      var st = document.getElementById('something').value
+      var out = document.getElementById('out')
+      if (checkFileType(st))
+      {
+        out.innerHTML = "Yes"
+      }
+      else
+      {
+        out.innerHTML = "No"
+      }
+    }
   </script>
 </body>
 </html>

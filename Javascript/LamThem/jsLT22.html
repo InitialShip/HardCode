@@ -3,27 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>JS_22</title>
 </head>
 <body>
+  <table>
+    <tr>
+      <td>Dãy số : </td>
+      <td id="out"></td>
+    </tr>
+    <tr>
+      <td>
+        <button onclick="Run()">Xoay vòng</button>
+      </td>
+    </tr>
+  </table>
   <script>
     var things = []
     function something()
     {
-      for (let i = 0; i < 10;i++)
+      for (let i = 0; i < 5;i++)
       {
         things[i] = Math.floor(Math.random() * 10)
       }
-      console.log(things)
+      var out = document.getElementById('out')
+      out.innerHTML = things
     }
   function doThings()
   {
-    something()
     things.push(things[0])
     things.shift()
   }
-  doThings()
-  console.log(things)
+  something()
+  function Run()
+  {
+    var out = document.getElementById('out')
+    doThings()
+    out.innerHTML = things
+  }
   </script>
 </body>
 </html>

@@ -3,9 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>JS_20</title>
 </head>
 <body>
+  <table>
+    <tr>
+      <td>Nhập một số: </td>
+      <td>
+        <input type="number" id="n">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button onclick="Run()">Reverse</button>
+      </td>
+    </tr>
+  </table>
   <script>
     function reverseNumber(n)
     {
@@ -13,7 +26,11 @@
       tmp.reverse()
       return Number(tmp.join(""))
     }
-    console.log(reverseNumber(123))
+    function Run()
+    {
+      var num = document.getElementById('n')
+      num.value = reverseNumber(num.value)
+    }
   </script>
 </body>
 </html>

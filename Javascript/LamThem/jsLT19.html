@@ -3,9 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>JS_19</title>
 </head>
 <body>
+  <table>
+    <tr>
+      <td>Nhập một số: </td>
+      <td>
+        <input type="number" id="n">
+      </td>
+    </tr>
+    <tr>
+      <td>Tổng các chữ số là:</td>
+      <td id="out"></td>
+    </tr>
+    <tr>
+      <td>
+        <button onclick="Run()">Sum</button>
+      </td>
+    </tr>
+  </table>
   <script>
     function sumDigit(n)
     {
@@ -17,7 +34,11 @@
       }
       return result
     }
-    console.log(sumDigit(123))
+    function Run()
+    {
+      var num = document.getElementById('n').value
+      document.getElementById('out').innerHTML = sumDigit(num)
+    }
   </script>
 </body>
 </html>

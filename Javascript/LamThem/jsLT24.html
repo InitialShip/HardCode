@@ -3,9 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>JS_24</title>
 </head>
 <body>
+  <table>
+    <tr>
+      <td>Dãy số : </td>
+      <td id="out"></td>
+    </tr>
+    <tr>
+      <td>
+        <button onclick="Run()">Run</button>
+      </td>
+    </tr>
+  </table>
   <script>
     var things = []
     function getRandom(n)
@@ -19,10 +30,12 @@
     {
       things.sort( function(a, b) {return b-a})
     }
-    getRandom(10)
-    console.log(things)
-    Descending()
-    console.log(things)
+    function Run()
+    {
+      getRandom(10)
+      Descending()
+      document.getElementById('out').innerHTML = things
+    }
   </script>
 </body>
 </html>
