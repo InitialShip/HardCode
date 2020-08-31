@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    A = 
+    <input type="numer" id="a">
+  </div>
+  <div>
+    B = 
+    <input type="numer" id="b">
+  </div>
+  <button onclick="output()">Run</button>
+  <div id="out"></div>
+  <script>
+    function totalEx(a,b,op)
+    {
+      if ( op ==='+')
+      {
+        return a+b
+      }
+      if ( op ==='-')
+      {
+        return a-b
+      }
+      if ( op === '*')
+      {
+        return a*b
+      }
+      return Math.round((a/b) * 100)/100 
+    }
+    function output()
+    {
+      var out = document.getElementById('out')
+      var A = parseInt(document.getElementById('a').value)
+      var B = parseInt(document.getElementById('b').value)
+      text = ""
+      text += `Cộng:${totalEx(A,B,'+')} <br/> Trừ:${totalEx(A,B,'-')} <br/> Nhân:${totalEx(A,B,'*')}<br/> Chia:${totalEx(A,B,'/')}`  
+      out.innerHTML=text
+    }
+  </script>
+</body>
+</html>

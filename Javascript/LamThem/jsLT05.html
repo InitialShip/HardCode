@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #out {
+      font-size: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div id="out"></div>
+  <button onclick="getRandom()">Run</button>
+  <script>
+    function getRandom()
+    {
+      var out = document.getElementById('out')
+      var text = ""
+      for (var i = 0; i < 10; i++)
+      {
+        text+=`${Math.floor(Math.random() * 100)} `
+      }
+      out.innerHTML = text
+    }
+    getRandom()
+  </script>
+</body>
+</html>

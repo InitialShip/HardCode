@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function removeChar(str,pos)
+    {
+      var tmp1, tmp2
+      tmp1 = str.slice(0,pos)
+      tmp2 = str.slice(pos+1)
+      var result = tmp1.concat(tmp2)
+      return result
+    }
+    console.log(removeChar("ahfwf",2))
+  </script>
+</body>
+</html>

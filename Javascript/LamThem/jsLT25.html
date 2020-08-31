@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+     var things = []
+    function getRandom(n)
+    {
+      for (let i = 0; i<n;i++)
+      {
+        things[i] = Math.floor(Math.random()*20)
+      }
+    }
+    function sillyName()
+    {
+      var tmp1 = []
+      var tmp2 = []
+      for (let i = 0 ; i < things.length;i++)
+      {
+        if ( things[i]%2 == 0)
+        {
+          tmp1.push(things[i])
+        }
+        else
+        {
+          tmp2.push(things[i])
+        }
+      }
+      return tmp1.concat(tmp2)
+    }
+    getRandom(20)
+    console.log(things)
+    console.log(sillyName())
+  </script>
+</body>
+</html>

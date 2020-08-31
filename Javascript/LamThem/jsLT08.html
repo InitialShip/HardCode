@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      font-size:50px;
+    }
+  </style>
+</head>
+<body>
+  <div id="out"></div>
+  <div id="out2"></div>
+  <button onclick="run()">Run</button>
+  <script>
+    var something = []
+    function isAscending()
+    {
+      var tmp = something.slice()
+      tmp.sort()
+      for (let i = 0; i<something.length ; i++)
+      {
+        if ( tmp[i] != something[i])
+        {
+          return false
+        }
+      }
+      return true
+    }
+    function isDescending()
+    {
+      var tmp2 = something.slice()
+      tmp2.sort()
+      tmp2.reverse()
+      for (let i = 0; i < something.length; i++)
+      {
+        if (tmp2[i] != something[i])
+        {
+          return false
+        }
+      }
+      return true
+    }
+    function getRandom()
+    {
+      for ( let i = 0 ;i < 3; i++)
+      {
+        something[i] = Math.floor(Math.random() * 99 + 1)
+      }
+    }
+    function run()
+    {
+      getRandom()
+      var out = document.getElementById('out')
+      var text = ""
+      for (let i = 0; i < something.length;i++)
+      {
+        text += `${something[i]} `
+      }
+      out.innerHTML = text
+
+      if ( isAscending() )
+      {
+        text = "thứ tự 3 số tăng dần"
+      }
+      else
+      {
+        if (isDescending())
+        {
+          text = "thứ tự 3 số giảm dần"
+        }
+        else
+        {
+          text = "3 số không có thứ tự"
+        }
+      }
+      var out = document.getElementById('out2')
+      out.innerHTML = text
+    }
+    run()
+    
+  </script>
+</body>
+</html>

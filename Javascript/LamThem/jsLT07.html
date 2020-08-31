@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="out"></div>
+  <div id="out2"></div>
+  <button onclick="Run()">Run</button>
+  <script>
+    function Run()
+    {
+      var arr = []
+      var max = 0;
+      var min = 100;
+      var text =""
+      var run = 0
+      while(run < 10)
+      {
+        var tmp = Math.floor(Math.random()*99 + 1)
+        if (tmp%2!=0) continue
+        arr[run] = tmp
+        text+= `${arr[run]} `
+        if (arr[run] > max )
+        {
+          max = arr[run]
+        }
+        if (arr[run] < min)
+        {
+          min = arr[run]
+        }
+        run++
+      }
+      var out = document.getElementById('out')
+      var out2 = document.getElementById('out2')
+      out.innerHTML = text
+      out2.innerHTML = `Số lớn nhất là ${max} <br/> Số nhỏ nhất là ${min}`
+    }
+    Run()
+  </script>
+</body>
+</html>

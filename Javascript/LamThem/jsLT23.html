@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var things = []
+    function getRandom(n)
+    {
+      for (let i = 0; i<n;i++)
+      {
+        things[i] = Math.floor(Math.random()*20)
+      }
+    }
+    function max()
+    {
+      var max = 0
+      for (let i = 0; i < things.length-1;i++)
+      {
+        if ( max < things[i] )
+        {
+          max = things[i]
+        }
+      }
+      return max
+    }
+    function min()
+    {
+      var min = things[things.length-1]
+      for (let i = 0; i < things.length;i++)
+      {
+        if ( min > things[i])
+        {
+          min = things[i]
+        }
+      }
+      return min
+    }
+    function sum()
+    {
+      var sum = 0;
+      for (let i = 0; i<things.length;i++)
+      {
+        sum+=things[i]
+      }
+      return sum
+    }
+    function average()
+    {
+      return sum() / things.length
+    }
+    getRandom(10)
+    console.log(things)
+    console.log(max())
+    console.log(min())
+    console.log(average())
+  </script>
+</body>
+</html>

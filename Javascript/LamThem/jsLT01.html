@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #output{
+      font-size: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div id="output"></div>
+  <script>
+    function Times()
+    {
+      let today = new Date()
+      let date = today.getDate()
+      let month = today.getMonth() + 1
+      let year = today.getFullYear()
+      
+      let dateText = `${date}/${month}/${year}`
+
+      let second = today.getSeconds()
+      let minute = today.getMinutes()
+      let hour = today.getHours()
+
+      let timeText = `${hour}:${minute}:${second}`
+      
+      let out = document.getElementById('output')
+      out.innerHTML ='Hôm nay là ngày '+dateText+', lúc '+timeText
+    }
+    setInterval(function(){
+      Times()
+    },1000)
+  </script>
+</body>
+</html>

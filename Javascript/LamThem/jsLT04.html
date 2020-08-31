@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    month:
+    <input type="number" id="month">
+  </div>
+  <div>
+    year:
+    <input type="number" id="year">
+  </div>
+  <button onclick="Run()">Run</button>
+  <div id="out"></div>
+  <script>
+    function getDates(month,year)
+    {
+      if (month==1||month==3||month==5||month==7||month==8||month==10||month==12) return 31
+      else
+      {
+        if ( month==2)
+        {
+          if ( (year %100==0 && year%400==0) || (year%4==0 && year%100!=0 ) ) 
+          {
+            return 29
+          }
+          else
+          {
+            return 28
+          }
+        }
+        else
+        {
+          return 30
+        }
+      }
+    }
+    function Run()
+    {
+      var month = document.getElementById('month').value
+      var year = document.getElementById('year').value
+      var out = document.getElementById('out')
+      var dates = getDates(month,year)
+
+      out.innerHTML = `Có ${dates} ngày`
+    }
+  </script>
+</body>
+</html>

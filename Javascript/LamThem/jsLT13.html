@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function upper_lower(str)
+    {
+      var result =""
+      if ( str.length >= 3)
+      {
+        result = str.substring(0,3).toUpperCase()
+        result = result.concat(str.substring(3))
+      }
+      else
+      {
+        result = str.toUpperCase()
+      }
+      return result
+    }
+    console.log(upper_lower("ab"))
+  </script>
+</body>
+</html>

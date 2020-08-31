@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function capilaLetter(str)
+    {
+      var tmp = str.split(" ")
+      for (let i = 0; i < tmp.length; i++)
+      {
+        var tmp1 = tmp[i].slice(0,1)
+        var tmp2 = tmp[i].slice(1)
+        tmp1 = tmp1.toUpperCase()
+        tmp[i] = tmp1.concat(tmp2)
+      }
+      return tmp.join(" ")
+    }
+    console.log(capilaLetter("hello how are you? I'm fine thank you!"))
+  </script>
+</body>
+</html>

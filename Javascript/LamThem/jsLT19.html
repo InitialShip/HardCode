@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function sumDigit(n)
+    {
+      var tmp = (n.toString()).split("")
+      var result = 0
+      for( let i = 0; i < tmp.length; i++)
+      {
+        result += Number(tmp[i])
+      }
+      return result
+    }
+    console.log(sumDigit(123))
+  </script>
+</body>
+</html>
