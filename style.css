@@ -136,16 +136,14 @@ main {
   position: relative;
   height: fit-content;
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+  grid-template-columns: repeat(auto-fit,1fr);
   grid-template-rows: auto;
   gap: 0.5rem;
   height: 100%;
 }
-.mot, .hai, .ba, .bon, .nam{
+.box {
   border: 1px solid wheat;
   padding: 1rem;
-}
-.box {
   color: var(--bg-F);
   animation: SlideLeft 500ms ease;
 }
@@ -222,25 +220,23 @@ main {
 
 @media screen and (min-width: 600px){
   .tall{
-    grid-row: span 4/auto;
-  }
-  .wide{
-    grid-column: span 2/ auto;
+    grid-column-start: 2;
+    grid-row: span 4/1;
   }
   .grid-item{
-    grid-template-columns: repeat(2,minmax(240px,1fr));
+    grid-template-columns: repeat(2,minmax(200px,1fr));
   }
 }
 @media only screen and (max-width: 600px){
   .Banner{
     display: none;
   }
-  .hai{
-    display: none;
-  }
   main{
     width: 100vw;
     margin-left:0;
     padding-left:0.5rem;
+  }
+  body {
+    overflow: hidden;
   }
 }

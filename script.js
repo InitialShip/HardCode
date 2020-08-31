@@ -3,7 +3,6 @@ var c = canvas.getContext('2d')
 canvas.width = window.innerWidth
 canvas.height = window.innerHeight
 const colors = ['#2185C5', '#7ECEFD', '#FFF6E5', '#FF7F66',"#15AFD6","#66E0FF","#00FFA6","#FF4840","#CC1455"]
-
 addEventListener('resize', ()=>{
   canvas.width = innerWidth
   canvas.height = innerHeight
