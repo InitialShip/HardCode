@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="jQuery.js"></script>
+  <style>
+    *{
+      font-size: 40px;
+    }
+    .container{
+      width: fit-content;
+      height: 102px;
+      margin: auto;
+      overflow: hidden;
+      background: rgb(121, 120, 120);
+    }
+    .box{
+      width: 100px;
+      height: 100px;
+      overflow: hidden;
+      display: inline-block;
+    }
+    .box:hover{
+      background-image: radial-gradient(circle, white, rgb(145, 145, 145), rgb(121, 120, 120));
+    }
+    .text{
+      position: relative;
+      top:50%;
+      left:50%;
+      transform: translate(-50%,-50%);
+      display: inline-block;
+      font-weight: bold ;
+      color: rgb(235, 233, 233);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box"><div class="text">1</div></div>
+    <div class="box"><div class="text">2</div></div>
+    <div class="box"><div class="text">3</div></div>
+    <div class="box"><div class="text">4</div></div>
+    <div class="box"><div class="text">5</div></div>
+  </div>
+  <script>
+    $().ready(function(){
+      $(".box").hover(function(){
+        $(this).stop().animate({
+          width:"150px"
+        },100)
+        $(this).children().stop().animate({
+          fontSize:"80px"
+        },100).css({color:"black"})
+      },function(){
+        $(this).stop().animate({
+          width:"100px"
+        },100)
+        $(this).children().stop().animate({
+          fontSize:"40px"
+        },100).css({color:"rgb(235, 233, 233)"})
+      })
+    })
+  </script>
+</body>
+</html>

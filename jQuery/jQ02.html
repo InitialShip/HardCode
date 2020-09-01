@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="jQuery.js"></script>
+</head>
+<body>
+  <table>
+    <caption>Tính số ngày giữa hai thời điểm</caption>
+    <tr>
+      <td>Từ ngày:</td>
+      <td>
+        <input type="date"  id="date1">
+      </td>
+    </tr>
+    <tr>
+      <td>Đến ngày:</td>
+      <td>
+        <input type="date"  id="date2">
+      </td>
+    </tr>
+    <tr>
+      <td><button onclick="Run()">Tính số ngày</button></td>
+    </tr>
+  </table>
+  <div id="out"></div>
+  <script>
+    function Run()
+    {
+      $("#out").html("số ngày là:"+ getDate())
+    }
+    function getDate()
+    {
+      var date1 = new Date($("#date1").val())
+      var date2 = new Date($("#date2").val())
+      return parseInt((date2-date1)/(24 * 3600 * 1000))
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="jQuery.js"></script>
+  <style>
+    table{
+      border-collapse: collapse;
+      width: 50%;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    th{
+      border: 1px solid green;
+      background: rgb(121, 196, 240);
+    }
+    td{
+      padding-left: 5px;
+      border: 1px solid orange;
+    }
+    button{
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <caption><h1>BẢNG GIÁ VẬT TƯ</h1></caption>
+    <tr>
+      <th>Tên vật tư</th>
+      <th>Đơn vị tính</th>
+      <th>Đơn giá</th>
+    </tr>
+    <tr>
+      <td>Cát</td>
+      <td>Khối</td>
+      <td>77,000</td>
+    </tr>
+    <tr>
+      <td>Đá</td>
+      <td>Khối</td>
+      <td>90,000</td>
+    </tr>
+    <tr>
+      <td>Xi măng Hà Tiên loại 1</td>
+      <td>Bao</td>
+      <td>120,000</td>
+    </tr>
+    <tr>
+      <td>Xi măng Hà Tiên loại 2</td>
+      <td>Bao</td>
+      <td>100,000</td>
+    </tr>
+  </table>
+  <button onclick="Change()">Đổi màu nền</button>
+  <button onclick="Default()">Màu nền mặc định</button>
+  <script>
+    function Change()
+    {
+      $("tr:nth-child(even)").css("background","pink")
+    }
+    function Default()
+    {
+      $("tr:nth-child(even)").css("background","white")
+    }
+  </script>
+</body>
+</html>

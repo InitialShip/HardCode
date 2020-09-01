@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="jQuery.js"></script>
+  <script src="https://kit.fontawesome.com/27811a5a11.js" crossorigin="anonymous"></script>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      font-size: 20px;
+    }
+    body{
+      background:dimgrey;
+    }
+    .slider{
+      width: 920px;
+      height: 480px;
+      margin: auto;
+      margin-top: 10px;
+      position: relative;
+      display: block;
+      background:white;
+    }
+    img{
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      position: absolute;
+    }
+    .active{
+      opacity: 1;
+    }
+    #one.active ~ .indicator .indicates #first{
+      background: white;
+    }
+    #two.active ~ .indicator .indicates #second{
+      background: white;
+    }
+    #three.active ~ .indicator .indicates #third{
+      background: white;
+    }
+    #four.active ~ .indicator .indicates #fourth{
+      background: white;
+    }
+    #five.active ~ .indicator .indicates #fifth{
+      background: white;
+    }
+    #six.active ~ .indicator .indicates #sixth{
+      background: white;
+    }
+    .indicator{
+      position: relative;
+      margin:auto;
+    }
+    .indicates{
+      position: absolute;
+      top:445px;
+      left:50%;
+      transform: translateX(-50%);
+      list-style: none;
+      display: flex;
+    }
+    .indi{
+      width: 20px;
+      height: 20px;
+      border:2px solid white;
+      border-radius: 20px;
+      display: inline-block;
+      margin-right:10px;
+      align-items: center;
+    }
+    li:first-of-type{
+      margin-left:10px;
+    }
+    .button{
+      position: relative;
+      width: 3rem;
+      height: 3rem;
+    }
+    .fas{
+      cursor: pointer;
+      position: absolute;
+      bottom:15px;
+      color: white;
+    }
+    .fas:hover{
+      color: rgb(77, 77, 252);
+    }
+  </style>
+</head>
+<body>
+  <div class="slider">
+    <img id="one" src="bryan-goff-f7YQo-eYHdM-unsplash.jpg" class="active">
+    <img id="two" src="christian-nielsen-1JHzqk5oTy8-unsplash.jpg">
+    <img id="three" src="mathew-schwartz-UFqKI4QWd2k-unsplash.jpg">
+    <img id="four" src="octavian-rosca-UfCYo7zHyY8-unsplash.jpg">
+    <img id="five" src="raphael-nogueira-cok-OxpkrKQ-unsplash.jpg">
+    <img id="six" src="tyler-van-der-hoeven-.jpg">
+    <div class="indicator">
+      <ul class="indicates">
+        <div class="button"><i class="fas fa-angle-double-left fa-3x" onclick="previous()"></i></div>
+        <li id="first" class="indi"></li>
+        <li id="second" class="indi"></li>
+        <li id="third" class="indi"></li>
+        <li id="fourth" class="indi"></li>
+        <li id="fifth" class="indi"></li>
+        <li id="sixth" class="indi"></li>
+        <div class="button"><i class="fas fa-angle-double-right fa-3x" onclick="next()"></i></div>
+      </ul>
+    </div>
+  </div>
+  <script>
+    function slide_forward()
+    {
+      $current = $('.slider img.active')
+      if($current.length==0)
+      {
+        $('.slider img:first-of-type').addClass('active')
+      }
+      else
+      {
+        $next = $current.removeClass('active').next("img")
+        if ($next.length==0)
+        {
+          $('.slider img:first-of-type').addClass('active')
+        }
+        else
+        {
+          $next.addClass('active')
+        }
+      }
+    }
+    function slide_backward()
+    {
+      $current = $('.slider img.active')
+      if($current.length==0)
+      {
+        $('.slider img:last-of-type').addClass('active')
+      }
+      else
+      {
+        $prev = $current.removeClass('active').prev("img")
+        if($prev.length==0)
+        {
+          $('.slider img:last-of-type').addClass('active')
+        }
+        else
+        {
+          $prev.addClass('active')
+        }
+      }
+    }
+    var id = setInterval(slide_forward,3000)
+    function next()
+    {
+      slide_forward()
+      clearInterval(id)
+      id = setInterval(slide_forward,3000)
+    }
+    function previous()
+    {
+      slide_backward()
+      clearInterval(id)
+      id = setInterval(slide_forward,3000)
+    }
+  </script>
+</body>
+</html>

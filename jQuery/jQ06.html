@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="jQuery.js"></script>
+</head>
+<style>
+  .box{
+    width: 50px;
+    height: 50px;
+    background: red;
+  }
+  table{
+    margin: auto
+  }
+  button{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+  }
+  .PlayGround {
+    width: 1000px;
+    height: 500px;
+  }
+  #box{
+    width: 50px;
+    height: 50px;
+    background: red;
+    position: relative;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+  }
+</style>
+<body>
+  <div class="PlayGround">
+    <div id="box"></div>
+  </div>
+  <table>
+    <tr>
+      <td></td>
+      <td><button id="up">Move up</button></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><button id="left">Move left</button></td>
+      <td><button id="down">Move down</button></td>
+      <td><button id="right">Move right</button></td>
+    </tr>
+  </table>
+  <script>
+    var id
+    $().ready(function() {
+		$(document).contextmenu(function() {
+				return false;
+			})
+      $("#right").click(function() {
+          $("#box").animate({left: "+=50px"},"linear")
+      })
+		  $("#left").click(function() {
+          $("#box").animate({left: "-=50px"},"linear")
+      })
+		  $("#up").click(function() {
+          $("#box").animate({top: "-=50px"},"linear")
+      })
+		$("#down").click(function() {
+          $("#box").animate({top: "+=50px"},"linear")
+      })
+    })
+  </script>
+</body>
+</html>

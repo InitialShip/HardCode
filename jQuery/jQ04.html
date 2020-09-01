@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="jQuery.js"></script>
+  <style>
+    .box{
+      width: 100px;
+      height: 100px;
+      display: inline-block;
+      cursor: pointer;
+    }
+    #box1{
+     background: blue;
+    }
+    #box2{
+      background: red;
+    }
+    #box3{
+      background: pink;
+    }
+    #box4{
+      background: green;
+    }
+    #out{
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <p>Click lên các hình vuông</p>
+  <div id="box1" class="box"></div>
+  <div id="box2" class="box"></div>
+  <div id="box3" class="box"></div>
+  <div id="box4" class="box"></div>
+  <div id="out"></div>
+</body>
+<script>
+  $(".box").click(function() {
+    var color = $(this).css("background-color")
+    $("#out").html("Màu bạn chọn là :"+color).css("color",color)
+})
+</script>
+</html>

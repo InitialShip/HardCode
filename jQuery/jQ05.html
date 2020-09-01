@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="jQuery.js"></script>
+  <style>
+    img{
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <img src="../Images/cat.jpg" alt="">
+  <script>
+    $("img").mouseover(function(){
+      $(this).width(400)
+      $(this).height(400)
+    })
+    $("img").mouseout(function(){
+      $(this).width(200)
+      $(this).height(200)
+    })
+  </script>
+</body>
+</html>

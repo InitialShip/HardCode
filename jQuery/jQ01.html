@@ -28,7 +28,11 @@
   <script>
     function addSubject()
     {
-      var newSub = $("#newSub").val()
+      var newSub = $("#newSub").val().replace(/\s+/g,'')
+      if (newSub == "")
+      {
+        return
+      }
       var out = $("#out")
       var newText = $("<li></li>").text(newSub)
       out.append(newText)
