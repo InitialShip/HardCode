@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .banner{
+      width: 100%;
+      height: 15vh;
+      background: blue
+    }
+    .nav-bar{
+      width: 100%;
+      height: 5vh;
+      background: deepskyblue;
+      position: relative;
+    }
+    .content{
+      width: 100%;
+      height: 70vh;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 15% 70% 15%;
+    }
+    .footer{
+      width: 100%;
+      height: 10vh;
+      background:blue;
+    }
+    .left{
+      position: relative;
+      float: left;
+      width: 15vw;
+      height: 100%;
+      background:wheat;
+    }
+    .main{
+      height: 100%;
+      text-align: justify;
+      padding: 5px;
+    }
+    .right{
+      clear: both;
+      position: relative;
+      float: right;
+      width: 15vw;
+      height: 100%;
+      background: wheat;
+    }
+    .wrapper{
+      width: 320px; 
+      margin: 0 auto;
+      overflow: hidden;
+      z-index: 1000;
+    }
+    .wrapper ul{
+      list-style: none;
+    }
+    .wrapper ul li {
+      background: green;
+      width: 70px;
+      line-height: 20px;
+      text-align: center;
+      float: left;
+      color: #fff;
+      position: relative;
+      margin: 5px;
+    }
+    .wrapper ul li:hover{
+      background: rgb(66, 66, 248); 
+      color: red;
+    }
+    .wrapper ul ul{
+      display: none;
+    }
+    .wrapper ul ul li{
+      width: 200px;
+      margin:0;
+    }
+    .wrapper ul li:hover > ul{
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">BANNER</div>
+  <div class="nav-bar">
+    <div class="wrapper">
+      <ul>
+        <li>Trang chủ</li>
+        <li>Dịch vụ
+          <ul>
+            <li>Cài đặc phần mềm</li>
+            <li>Sửa chửa phần cứng</li>
+            <li>Triển khai hệ thống</li>
+            <li>Tư vấn dịch vụ game</li>
+          </ul>
+        </li>
+        <li>Giới thiệu</li>
+        <li>Liên hệ</li>
+      </ul> 
+    </div>
+  </div>
+  <div class="content">
+    <div class="left">Left</div>
+    <div class="main">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum corporis doloremque velit enim vero similique molestias, fugit minima molestiae voluptate eius ratione id nostrum dolorem omnis inventore cupiditate quam reiciendis.
+    </div>
+    <div class="right">Right</div>
+  </div>
+  <div class="footer">Footer</div>
+</body>
+</html>
