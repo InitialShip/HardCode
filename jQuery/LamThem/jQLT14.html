@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../jQuery.js"></script>
+  <style>
+    div{
+      width: 200px;
+      background: yellow;
+    }
+  </style>
+</head>
+<body>
+  <p>
+    <button id="bt">Slide Down-Up</button>
+    <div></div>
+  </p>
+  <script>
+      $('div').animate({height:$(window).innerHeight()})
+      $('#bt').on('click',function(){
+        $('div').slideUp().delay().slideDown()
+      })
+  </script>
+</body>
+</html>

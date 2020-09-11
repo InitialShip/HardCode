@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../jQuery.js"></script>
+</head>
+<body>
+  <h1>LOREM IPSUM</h1>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum sed, voluptas laudantium consequatur explicabo tenetur sequi ipsam ut quisquam atque aperiam quidem ipsum beatae, odit ad porro commodi, asperiores tempore.</p>
+  <p>Luctus tellus phasellus nibh eu feugiat auctor faucibus tristique, porta torquent lacinia montes nisl taciti justo, litora iaculis nostra sed aptent semper dui. Enim vestibulum sagittis donec maecenas imperdiet nisi nulla senectus nec dictumst, torquent dictum dis facilisis tristique risus arcu metus etiam habitasse ridiculus, id est quam vel interdum leo tortor montes semper. At turpis ultrices varius nascetur magna lobortis curae penatibus pretium venenatis, tempor sollicitudin hac id imperdiet netus aenean neque bibendum dui mauris, primis integer sem quis mollis et vehicula litora ligula.</p>
+  <button onclick="Delete()">Delete</button>
+  <script>
+    function Delete()
+    {
+      $('p').each(function(){
+        $(this).remove()
+      })
+    }
+  </script>
+</body>
+</html>

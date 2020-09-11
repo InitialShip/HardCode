@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../jQuery.js"></script>
+  <style>
+    #mycolor{
+      width: 200px;
+      height: 50px;
+      font-size: 25px;
+    }
+  </style>
+</head>
+<body>
+  <select id="mycolor">
+    <option value="Red">Red</option>
+    <option value="Blue">Blue</option>
+    <option value="Green">Green</option>
+  </select>
+  <br>
+  <button onclick="Add()">Add</button>
+  <script>
+    function Add()
+    {
+      $('#mycolor').append('<option value="Cyan">Cyan</option>')
+    }
+  </script>
+</body>
+</html>

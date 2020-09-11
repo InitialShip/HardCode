@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../jQuery.js"></script>
+  <style>
+    button{
+      margin-bottom: 50px;
+    }
+  </style>
+</head>
+<body>
+  <button id="btnl">Tạo hoạt hình</button>
+  <div id="box" style="background:#B45F04;height: 100px;width: 100px;"></div>
+  <script>
+    $('#btnl').on('click',function(){
+      $('#box').animate({height:"300px",width:"300px"},"linear").delay().animate({height:"100px",width:"100px"},"linear")
+    })
+  </script>
+</body>
+</html>

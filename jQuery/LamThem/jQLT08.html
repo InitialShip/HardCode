@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../jQuery.js"></script>
+</head>
+<style>
+  body{
+    font-size:30px;
+  }
+  h1{
+    cursor: pointer;
+  }
+</style>
+<body>
+  <h1> Hãy click vào tôi</h1>
+  <p></p>
+  <script>
+    $(document).bind("contextmenu", function(e) {return false})
+    var out = $("p")
+    $("h1").mousedown(function(event) {
+      switch (event.which) {
+          case 1:
+              out.html("Bạn click chuột trái")
+              break
+          case 3:
+              out.html("Bạn click chuột phải")
+              break
+      }
+    })
+  </script>
+</body>
+</html>

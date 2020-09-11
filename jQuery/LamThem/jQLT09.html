@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../jQuery.js"></script>
+</head>
+<body>
+  <select id="mycolor">
+    <option value="Red">Red</option>
+    <option value="Blue">Blue</option>
+    <option value="Green">Green</option>
+  </select>
+  <p></p>
+  <script>
+    var out = $('p')
+    var text
+    $('#mycolor').on('change load',function(){
+      text = $('#mycolor option:selected').text()
+      out.html(text)
+    })
+  </script>
+</body>
+</html>
