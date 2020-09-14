@@ -1,13 +1,40 @@
 // JavaScript Document
-function MakeGame(height, width, mines){
+var win=new Audio();
+win.src="Audio/Win.mp3";
+win.preload='auto';
+win.volume=0.5;
+
+var dead=new Audio();
+dead.src="Audio/Bomb.mp3";
+dead.preload='auto';
+dead.volume=0.5;
+	
+var mouse=new Audio();
+mouse.src="Audio/MouseClick.wav";
+mouse.preload='auto';
+mouse.volume=0.5;
+
+function Winning(){
+	win.play();
+}
+function MineSound(){
+	dead.play();
+}
+function MouseClick(){
+	mouse.play();
+}
+
+function MakeGame(height, width, mines,fogmode){
+	if(fogmode) $('#ms').addClass('fogMode');
 	var table=$("#ms");
 	table.html('');
 	var trCounter=0;
+	var fogClass = fogmode?'class="hidden"':'class=""';
 	for(var i=0;i<height;i++){
 		var tdCounter=0;
 		var trString='<tr>';
 		for(var j=0;j<width;j++){
-			trString+='<td id="tile'+Pad(trCounter)+Pad(tdCounter)+'"></td>';
+			trString+='<td id="tile'+Pad(trCounter)+Pad(tdCounter)+'"><span '+fogClass+'> </span></td>';
 			tdCounter++;
 		}
 		trString+='</tr>';
@@ -18,109 +45,57 @@ function MakeGame(height, width, mines){
 	AddAllNumbers();
 	MakeClickAble();
 }
-function BorderingTiles(td){
+function BorderingTiles(td){ 
 	var borderingArray=[];
 	var tileID=td.attr('id');
 	var tileTR=parseInt(tileID.slice(4,6),10);
 	var tileTD=parseInt(tileID.slice(6),10);
-	var right=$('#tile'+Pad(tileTR)+Pad(tileTD+1));
-	if(right.length>0){
-		borderingArray.push(right);
-	}
-	var left=$('#tile'+Pad(tileTR)+Pad(tileTD-1));
-	if(left.length>0){
-		borderingArray.push(left);
-	}
-	var downRight=$('#tile'+Pad(tileTR+1)+Pad(tileTD+1));
-	if(downRight.length>0){
-		borderingArray.push(downRight);
-	}
-	var down=$('#tile'+Pad(tileTR+1)+Pad(tileTD));
-	if(down.length>0){
-		borderingArray.push(down);
-	}
-	var downLeft=$('#tile'+Pad(tileTR+1)+Pad(tileTD-1));
-	if(downLeft.length>0){
-		borderingArray.push(downLeft);
-	}
-	var upRight=$('#tile'+Pad(tileTR-1)+Pad(tileTD+1));
-	if(upRight.length>0){
-		borderingArray.push(upRight);
-	}
-	var up=$('#tile'+Pad(tileTR-1)+Pad(tileTD));
-	if(up.length>0){
-		borderingArray.push(up);
-	}
-	var upLeft=$('#tile'+Pad(tileTR-1)+Pad(tileTD-1));
-	if(upLeft.length>0){
-		borderingArray.push(upLeft);
+	
+	for (var yOff = -1; yOff <= 1; yOff++)
+	{
+		var y = yOff + tileTR;
+		for (var xOff = -1; xOff <= 1; xOff++)
+		{
+			if (yOff==0 && xOff==0) continue
+			var x = xOff + tileTD;
+			var tile = $('#tile'+Pad(y)+Pad(x))
+			if ( tile.length > 0)	borderingArray.push($('#tile'+Pad(y)+Pad(x)));
+		}
 	}
 	return borderingArray;
 }
 function RevealTile(td){
+	if (td.hasClass('revealed')) return;
 	if(!td.hasClass('flagged')){
+		var amount = td.attr('class').slice(-1)
 		td.addClass('revealed');
-		td.css("background-color","#aaa");
 		if(td.hasClass('mine')){
 			td.html('<img src="Images/mine.png" />');
 			td.css("background-color","#f00");
 			ValidateGame();
 		}
-		else if(td.hasClass('borders0')){
-			var borderTiles=BorderingTiles(td);
-			for(i in borderTiles){
-				if(!borderTiles[i].hasClass('revealed')){
-					RevealTile(borderTiles[i]);
-				}
-			}
+		else if(amount == 0){
+			var borderTiles = BorderingTiles(td);
+			borderTiles.forEach(Element =>{
+					RevealTile(Element);
+			})
 		}
-		else if(td.hasClass('borders1')){
-			td.text('1');
-			td.css("color",ColorForNumber(1));
+		else
+		{
+			td.children().html(amount);
+			td.css("color",ColorForNumber(amount));
 		}
-		else if(td.hasClass('borders2')){
-			td.text('2');
-			td.css("color",ColorForNumber(2));
-		}
-		else if(td.hasClass('borders3')){
-			td.text('3');
-			td.css("color",ColorForNumber(3));
-		}
-		else if(td.hasClass('borders4')){
-			td.text('4');
-			td.css("color",ColorForNumber(4));
-		}
-		else if(td.hasClass('borders5')){
-			td.text('5');
-			td.css("color",ColorForNumber(5));
-		}
-		else if(td.hasClass('borders6')){
-			td.text('6');
-			td.css("color",ColorForNumber(6));
-		}
-		else if(td.hasClass('borders7')){
-			td.text('7');
-			td.css("color",ColorForNumber(7));
-		}
-		else if(td.hasClass('borders8')){
-			td.text('8');
-			td.css("color",ColorForNumber(8));
-		}
-		td.css("border","1px solid");
-		td.css("border-color","#777");
-		td.css("height","38px");
-		td.css("width","38px");
 	}
 }
 function FlagTile(td){
 	if(td.hasClass('flagged')){
 		td.removeClass('flagged');
-		td.text('');
+		td.children('img').remove();
 	}
 	else{
 		if(!td.hasClass('revealed')){
 			td.addClass('flagged');
-			td.html('<img src="Images/flag.png" />');
+			td.append('<img src="Images/flag.png" />');
 		}
 	}
 }
@@ -142,16 +117,29 @@ function AddAllNumbers(){
     });
 }
 function MakeClickAble(){
+	if($('#ms').hasClass('fogMode')) {
+		fogMode();
+	}
 	$('td').each(function(index) {
         $(this).mousedown(function(event) {
             if(!$("#ms").hasClass('gameOver')){
 				switch(event.which){
 					case 1:
+					{
+						if((!$(this).hasClass('revealed')&&!$(this).hasClass('mine'))||(!$(this).hasClass('revealed')&&$(this).hasClass('flagged'))){
+							MouseClick();
+						}
 						RevealTile($(this));
-						break;
+					}
+					break;
 					case 3:
+					{
+						if(!$(this).hasClass('revealed')){
+							MouseClick();
+						}
 						FlagTile($(this));
-						break;
+					}
+					break;
 				}
 			}
         });
@@ -190,9 +178,24 @@ function AddMines(mines){
 		tilesLeft--;
     });
 }
+function fogMode(){
+	$('td').on('mouseover',function(){
+		Show($(this));
+		var neigbours = BorderingTiles($(this));
+		neigbours.forEach(Element => {Show(Element);})
+	}).on('mouseout',function(){
+		Show($(this))
+		var neigbours = BorderingTiles($(this));
+		neigbours.forEach(Element => {Show(Element);})
+	})
+}
+function Show(td){
+	if (td.hasClass('mine')) return;
+	td.children('span').toggleClass('show');
+}
 function CheatGame(){
 	$('td').each(function(index) {
-        if(!$(this).hasClass('mine')){
+      if(!$(this).hasClass('mine')){
 			RevealTile($(this));
 		}
     });
@@ -208,6 +211,7 @@ function IsGameWon(){
 }
 function EndGameWin(){
 	$('#header').text('You Win! Congratulations!');
+	Winning();
 	$('.mine').each(function() {
         $(this).html('<img src="Images/flag.png" />');
     });
@@ -215,8 +219,9 @@ function EndGameWin(){
 }
 function EndGameLose(){
 	$('#header').text('You Lose!');
+	MineSound();
 	$('.mine').each(function() {
-        $(this).html('<img src="Images/mine.png" />');
+    $(this).html('<img src="Images/mine.png" />');
 		$(this).css("border","1px solid");
 		$(this).css("border-color","#777");
 		$(this).css("height","38px");
@@ -224,10 +229,16 @@ function EndGameLose(){
 		if($(this).css("background-color")=='rgb(187, 187, 187)'){
 			$(this).css("background-color","#aaa");
 		}
-    });
+		});
+	$('#cheat').html('Show');
 	$("#ms").addClass('gameOver');
 }
 function ValidateGame(){
+	if ($('#ms').hasClass('gameOver')) 
+	{
+		alert('The game is over!');
+		return;
+	}
 	var gameWon=IsGameWon();
 	if(gameWon){
 		EndGameWin();
@@ -237,14 +248,23 @@ function ValidateGame(){
 	}
 }
 function SaveGame(){
-	if($('#ms').hasClass('gameOver')) return
+	if($('#ms').hasClass('gameOver')) {
+		alert('The game is over!');
+		return;
+	}
 	if(localStorage.getItem('minesweeperGames')){
 		var games=JSON.parse(localStorage.getItem('minesweeperGames'));
 	}
 	else{
 		var games=[];
 	}
-	var newGame=[new Date().getTime(),$("#ms").html()];
+	var gameInfo = $("#ms").attr('class').split('.')
+	for (var i = 0; i < gameInfo.length; i++)
+	{
+		gameInfo[i] = gameInfo[i].toUpperCase();
+	}
+	gameInfo.join(" ")
+	var newGame=[new Date().getTime(),$("#holder").html(),gameInfo];
 	games.push(newGame);
 	localStorage.setItem('minesweeperGames',JSON.stringify(games));
 	DisplaySavedGames();
@@ -255,8 +275,9 @@ function DisplaySavedGames(){
 		var games=JSON.parse(localStorage.getItem('minesweeperGames'));
 		for(i in games){
 			 var dt=new Date(games[i][0]);
+			 var gameInfo = games[i][2];
 			 var timeString=Pad(dt.getMonth()+1)+'/'+Pad(dt.getDate())+'/'+Pad(dt.getFullYear())+' '+Pad(dt.getHours())+':'+Pad(dt.getMinutes());
-			 var loadLink='<a href="#" onclick="LoadGame(\''+games[i][0]+'\')">'+timeString+'</a>';
+			 var loadLink='<a href="#" onclick="LoadGame(\''+games[i][0]+'\')">'+gameInfo+' | '+timeString+'</a>';
 			 var deleteLink='<a href="#" onclick="DeleteGame(\''+games[i][0]+'\')">Delete</a>';
 			 $("#saved").append('<div class="savedGame">'+loadLink+' ('+deleteLink+')</div>');
 		}
@@ -266,9 +287,17 @@ function LoadGame(time){
 	var games=JSON.parse(localStorage.getItem('minesweeperGames'));
 	for(i in games){
 		if(games[i][0]==time){
-			$("#ms").html(games[i][1]);
-			$("#ms").removeClass('gameOver');
-			$("#header").text("MineSweeper")
+			$("#holder").html(games[i][1]);
+			$("#header").text("MineSweeper");
+			$('#cheat').html("Cheat");
+			if($('#ms').hasClass('fogMode'))
+			{
+				$('#fog').attr('checked',true);
+			}
+			else
+			{
+				$('#fog').attr('checked',false);
+			}
 			MakeClickAble();
 		}
 	}
@@ -302,15 +331,21 @@ function MakeMineSweeper(){
 			width=16;
 			mines=40;
 			break;
+		case "insane":
+			height=30;
+			width=30;
+			mines=180;
+			break;
 		case "custom":
 			height=$('#height').val();
 			width=$('#width').val();
 			mines=$('#mine').val();
 			break;
 	}
-	$("#ms").removeClass('gameOver');
+	$("#ms").attr('class',$('#level').val());
 	$("#header").text("MineSweeper");
-	MakeGame(height,width,mines);		
+	$('#cheat').html("Cheat");
+	MakeGame(height,width,mines,$('#fog').is(':checked'));		
 }
 $(document).ready(function() {
 	$(document).contextmenu(function() {
@@ -320,12 +355,9 @@ $(document).ready(function() {
 	$('#level').click(function() {
         switch($('#level').val()){
 			case "easy":
-				$('#customSection').css("display","none");
-				break;
 			case "intermediate":
-				$('#customSection').css("display","none");
-				break;
 			case "expert":
+			case "insane":
 				$('#customSection').css("display","none");
 				break;
 			case "custom":
@@ -336,12 +368,15 @@ $(document).ready(function() {
 	$('.custom').on('keydown', function(e){
 		e.preventDefault();
 	});
-	$('.custom').click(function() {
+	$('.custom').on('click mousedown',function() {
         var text="";
 		var height=$("#height").val();
 		var width=$("#width").val()
 		text+=Math.round(height*width)/2;
-		$("#mine").attr("max",text);
+		if(Number(text)<$('#mine').attr('max')){
+			$('#mine').val(text)
+		}
+		$('#mine').attr('max',text);
     });
     $('#new').click(function() {
         MakeMineSweeper();

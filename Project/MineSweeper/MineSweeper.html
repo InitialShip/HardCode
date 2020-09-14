@@ -5,35 +5,37 @@
 <title>MineSweeper</title>
 <link rel="stylesheet" href="CSS/MS.css">
 <link rel="icon" href="Images/icon.png">
-<script src="Javascript/jQuery.js"></script>
-<!-- <script id="soundFX" src="Javascript/Audio.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
 	<h1 id="header">MineSweeper</h1>
     <div class="function">
+        <label for="fog" title="You can only see mine indicators in 3x3 tile">| Fog Mode:</label>
+        <input type="checkbox" id="fog"> |
         <button id="validate">Validate</button>
        	<button id="cheat">Cheat</button>
         <button id="save">Save Game</button>
-        <!-- Sound:<input id="check" type="checkbox" checked> -->
     </div>
-    <table id="ms"></table>
+    <div id="holder">
+        <table id="ms"></table>
+    </div>
     <div class="function">
     	Level:
         <select id="level" name="level">
         	<option value="easy" selected>Easy (8x8, 10 mines)</option>
             <option value="intermediate">Intermediate (12x12, 20 mines)</option>
             <option value="expert">Expert (16x16, 40 mines)</option>
+            <option value="insane">Insane (30x30, 180 mines)</option>
             <option value="custom">Custom</option>
-            <option value="insane" title="F12 won't save you haha, Unless you know how to use console">Test your insanity</option>
         </select>
         <button id="new">New Game</button>
        	<br>
         <div id="customSection">
         	Height:
-            <input type="number" id="height" class="custom" value="8" min="8" max="24">
+            <input type="number" id="height" class="custom" value="8" min="8" max="30">
             Width:
-            <input type="number" id="width" class="custom" value="8" min="8" max="24">
+            <input type="number" id="width" class="custom" value="8" min="8" max="30">
             Mines:
             <input type="number" id="mine" class="custom" value="10" min="10">
         </div>
@@ -42,18 +44,6 @@
     	<h2>Your Saved Games:</h2>
         <div id="saved"></div>
     </div>
-    <!-- <script src="Javascript/MS.js"></script> -->
-    <script src="Javascript/New.js"></script>
-    <script>
-        $('#check').click(function(){
-            if($(this).is(":checked")){
-                $("#soundFX").attr('src','Javascript/Audio.js')
-            }
-            else
-            {
-                $("#soundFX").attr('src','')
-            }
-        })
-    </script>
+    <script src="Javascript/MS.js"></script>
 </body>
 </html>

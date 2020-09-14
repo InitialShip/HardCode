@@ -18,14 +18,13 @@ table{
 	border-spacing: 0px;
 }
 td{
+	font-size: 20px;
 	cursor: crosshair;
 	background-color: #bbb;
 	height: 34px;
 	width: 34px;
 	min-width: 34px;
 	min-height: 34px;
-	max-width: 40px;
-	max-height: 40px;
 	padding: 0px;
 	border: 3px solid;
 	border-color: #ddd #777 #777 #ddd;
@@ -49,17 +48,15 @@ a{
 .custom{
 	width: 40px;
 }
-.savedSection{padding-top: 20px;}
+.savedSection{
+	padding-top: 20px;
+}
 .revealed{
-	background-color: #aaa;
+	background: #aaa;
+	border: 1px solid;
+	border-color:#777;
 	height: 38px;
 	width: 38px;
-	min-width: 38px;
-	min-height: 38px;
-	border: 1px solid rgb(119,119,119);
-}
-.bomb{
-	background-color:#f00;
 	min-width: 38px;
 	min-height: 38px;
 }
@@ -70,25 +67,17 @@ td:not(.revealed):hover{
 @keyframes blink{
 	0%{
 		background-color:#bbb;
-		border-color: #ddd #777 #777 #ddd
 	}
 	50%{
-		background-color: white;
-		border-color: wheat;
+		background-color: wheat;
 	}
 	100%{
 		background-color: #bbb;
-		border-color: #ddd #777 #777 #ddd
 	}
 }
-.clickhere{
-	background-color: rgb(210, 231, 18);
-	border-color: rgb(244, 247, 117) rgb(84, 85, 2) rgb(84, 85, 2) rgb(244, 247, 117);
+.hidden{
+	display: none;
 }
-.onseen{
-	background-color: #bbb;
-}
-.blinking{
-	transition: background-color;
-	animation: blink 500ms linear infinite;
+.show{
+	display: block;
 }
